@@ -1,18 +1,22 @@
 # Buffalo History Museum — Tec-Tel × Hanwha microsite
 
-Standalone prospect microsite (same pattern as `jetro-aisle-safety`): a single
-static `index.html` + one CSS file, hostable as a shareable link, for Robin
-Foley at The Buffalo History Museum.
+Standalone prospect microsite for Robin Foley (The Buffalo History Museum):
+software-first path off Pelco VideoXpert onto Hanwha Wisenet WAVE, phased so
+the AI cameras land with the fall grant.
 
-## What's here
-- **`explainer.html`** — a self-contained animated in-page explainer of the
-  phased Hanwha plan (Phase 1: Wisenet WAVE on existing Pelco cameras over
-  ONVIF; Phase 2: Hanwha AI cameras add real-time alerts). No dependencies,
-  autoplays, respects reduced-motion. Lift its `<section class="ttx-explainer">`
-  + `<style>` + `<script>` into the page, or embed via `<iframe>`.
+## Files
+| File | What it is | Status |
+|---|---|---|
+| `explainer.html` | Self-contained animated in-page explainer of the 2-phase plan. Drops into the page's `#explainer-slot`. | Done |
+| `pricing-section.html` | Drop-in **Phase 1 pricing** section. Line-item skeleton with placeholder `$ —` values — search `TEAK` for the spots that need his numbers + channel count. | Drafted, awaiting pricing |
+| `design-snapshot.html` | Rendered snapshot exported from Claude Design. **Renders, but NOT clean source** (markup is JS-injected/escaped). Reference only. | Reference |
 
-## For Claude Design (building the page)
-Build the microsite in this repo (`index.html` + CSS). Leave a full-width
-`<section id="explainer-slot">` near the top — the explainer above drops in
-there. Also leave a **Phase 1 pricing** section as a slot; real numbers land
-once the engineer (Teak) reviews scope and prices it.
+## To finish the build
+1. **Get the clean dev-handoff source in here** — Claude Design's push-ready
+   folder (`index.html` + `buffalo-hanwha.css` + `assets/` + `.nojekyll`).
+   `design-snapshot.html` is the snapshot form and can't be cleanly edited.
+2. Wire `explainer.html` into `#explainer-slot`.
+3. Insert `pricing-section.html` before the closing CTA (`#book`); restyle to
+   the site's own `.section` classes/tokens.
+4. Drop Teak's Phase 1 numbers into the `data-price` spans.
+5. Deploy to a live URL (Vercel / Pages) for review.
