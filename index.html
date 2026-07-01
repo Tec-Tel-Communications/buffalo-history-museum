@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tec-Tel × Hanwha — A software-first path off Pelco | The Buffalo History Museum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="For Robin Foley at The Buffalo History Museum: get off the discontinued Pelco VideoXpert this summer with zero coverage gap. Stand up Hanwha's Wisenet WAVE on the cameras you already own, then add real-time AI cameras in the fall grant.">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="A software-first path off Pelco | The Buffalo History Museum">
+<meta property="og:description" content="Stand up Hanwha's Wisenet WAVE on the cameras you already own this summer. No coverage gap, no annual license fees. Then add real-time AI cameras in the fall grant.">
+<meta property="og:image" content="assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A software-first path off Pelco | The Buffalo History Museum">
+<meta name="twitter:description" content="Get off the discontinued Pelco VideoXpert this summer with zero coverage gap. Own the platform outright.">
+<meta name="twitter:image" content="assets/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="buffalo-hanwha.css">
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#131A2B"/>
+    <rect x="30" y="34" width="40" height="28" rx="3" fill="none" stroke="#2E75B6" stroke-width="2.4"/>
+    <circle cx="50" cy="48" r="7" fill="none" stroke="#3DBA87" stroke-width="2.4"/>
+    <circle cx="50" cy="48" r="2.4" fill="#3DBA87"/>
+    <rect x="44" y="64" width="12" height="3" rx="1.5" fill="#6B4DE6"/>
+  </svg>
+</template>
+
+<!-- ==================== NAV ==================== -->
+<header class="nav">
+  <div class="wrap nav__row">
+    <a class="nav__lockup" href="#top" aria-label="Tec-Tel">
+      <img class="nav__logo" src="assets/tectel-logo-color.png" alt="Tec-Tel">
+      <span class="nav__div"></span>
+      <span class="nav__partner"><span class="nav__dot"></span>× Hanwha&nbsp;Vision</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#keep">The Software</a>
+      <a href="#ai">AI Alerts</a>
+      <a href="#plan">The Plan</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="nav__cta" href="#book">Book the next call</a>
+  </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="top">
+  <div class="hero__glow"></div>
+  <div class="hero__glow2"></div>
+  <div class="hero__texture tex-dots-d"></div>
+  <div class="wrap hero__inner">
+    <div>
+      <span class="prepared"><span class="live"></span>Prepared for Robin Foley · The Buffalo History Museum</span>
+      <h1>Run <em>Wisenet WAVE</em> on the cameras you already have.</h1>
+      <p class="hero__sub">Robin, here's the software-first path we talked through. WAVE installs on a small server and connects to your existing Pelco cameras over ONVIF, so you move off VideoXpert this summer with no coverage gap. Then in the fall, the grant pays for the AI cameras. <b>Two clean steps.</b></p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary" href="#explainer">Watch the walkthrough <span class="arrow">→</span></a>
+        <a class="btn btn--ghost-d" href="#plan">See the two-step plan</a>
+      </div>
+    </div>
+
+    <div class="waveui" aria-label="Illustration of the Wisenet WAVE video management interface">
+      <div class="waveui__bar">
+        <span class="waveui__brand">Wisenet <span>WAVE</span></span>
+        <span class="waveui__meta">60 CH · ONVIF · LOCAL SERVER</span>
+      </div>
+      <div class="waveui__grid">
+        <div class="tile tile--g1"><span class="tile__rec"></span><span class="tile__lbl">GALLERY · EAST</span></div>
+        <div class="tile tile--g2"><span class="tile__rec"></span><span class="tile__lbl">MAIN STAIR</span></div>
+        <div class="tile tile--g3"><span class="tile__rec"></span><span class="tile__lbl">ROTUNDA</span></div>
+        <div class="tile tile--g4"><span class="tile__rec"></span><span class="tile__lbl">LOADING DOCK</span></div>
+        <div class="tile tile--g5"><span class="tile__rec"></span><span class="tile__lbl">ARCHIVE HALL</span></div>
+        <div class="tile tile--g6"><span class="tile__rec"></span><span class="tile__lbl">LOBBY</span></div>
+      </div>
+      <div class="waveui__foot">
+        <span><span class="ok">● 60 cameras online</span></span>
+        <span>Existing cameras <span class="via">via ONVIF</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="chips">
+      <div class="chip"><b>This summer</b><span>Off Pelco VideoXpert, no gap</span></div>
+      <div class="chip"><b>Your cameras</b><span>Kept live over ONVIF</span></div>
+      <div class="chip"><b>No annual fees</b><span>Perpetual license, you own it</span></div>
+      <div class="chip"><b>Fall grant</b><span>AI cameras, real-time alerts</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EXPLAINER SLOT ==================== -->
+<section class="explainer" id="explainer">
+  <div class="wrap">
+    <section id="explainer-slot" aria-label="software walkthrough"><iframe class="explainer__frame" src="explainer.html" title="How the Wisenet WAVE platform works, in about 90 seconds" loading="lazy"></iframe></section>
+  </div>
+</section>
+
+<!-- ==================== KEEP CAMERAS + OWN IT (merged) ==================== -->
+<section class="section" id="keep">
+  <div class="wrap">
+    <p class="eyebrow">Your building. Your cameras. Keep them running.</p>
+    <h2 class="h2">Your cameras stay. The <em>software</em> changes.</h2>
+    <p class="lede">Wisenet WAVE talks to your existing Pelco cameras over ONVIF and records them on a small server inside the museum. Nothing comes off the wall, so there's no day where the building goes dark. And because WAVE is a perpetual license bought this summer, outside the grant, the camera RFP never gets to dictate your platform for the next 20 years.</p>
+
+    <div class="bridge">
+      <div class="bridge__node">
+        <span class="bridge__kicker">Today</span>
+        <span class="bridge__title">Your Pelco cameras</span>
+        <span class="bridge__desc">The interior and exterior cameras already mounted, now on the wired runs you just added.</span>
+      </div>
+      <div class="bridge__link">
+        <span class="bridge__pipe">ONVIF</span>
+        <span class="bridge__arrow"></span>
+      </div>
+      <div class="bridge__node bridge__node--dark">
+        <span class="bridge__kicker">This summer</span>
+        <span class="bridge__title">Wisenet WAVE server</span>
+        <span class="bridge__desc">A small on-site server that records every camera. This is the piece that retires VideoXpert.</span>
+      </div>
+      <div class="bridge__link">
+        <span class="bridge__pipe">Live view</span>
+        <span class="bridge__arrow"></span>
+      </div>
+      <div class="bridge__node">
+        <span class="bridge__kicker">Day one</span>
+        <span class="bridge__title">Your team, in WAVE</span>
+        <span class="bridge__desc">Browser and mobile access to live and recorded video. Same cameras, a platform that isn't being discontinued.</span>
+      </div>
+    </div>
+
+    <div class="intg-stats">
+      <div class="intg-stat"><b>Perpetual</b><span>Buy the license once. You own it outright.</span></div>
+      <div class="intg-stat"><b>$0 / year</b><span>No annual software fees to defend each budget cycle.</span></div>
+      <div class="intg-stat"><b>Per channel</b><span>One license per camera. Scale by the camera, not a tier.</span></div>
+      <div class="intg-stat"><b>Outside the grant</b><span>Software decided this summer, on its own budget.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PHASE 2 AI ==================== -->
+<section class="section section--tint" id="ai">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--violet">Then the part you actually asked for</p>
+    <h2 class="h2">In the fall, the new cameras start <em class="v">watching for you.</em></h2>
+    <p class="lede">Real-time alerting, not footage you review after the fact. The grant-funded Hanwha AI cameras run detection on the camera itself, so WAVE can flag after-hours intrusion or vandalism the moment it happens, whether or not anyone is at the desk.</p>
+
+    <div class="p2-grid">
+      <div class="feed" aria-label="Illustration of a Hanwha AI camera detection in WAVE">
+        <div class="feed__scene">
+          <div class="feed__hud">
+            <span class="l"><span class="feed__rec"></span>LIVE · GALLERY EAST</span>
+            <span>AI CAMERA</span>
+          </div>
+          <div class="det" style="left:32%; bottom:20%; width:36%; height:40%;">
+            <span class="det__lbl">AFTER-HOURS INTRUSION · ALERT</span>
+          </div>
+          <div class="feed__foot">
+            <span>02:14 AM</span>
+            <span>WAVE · RULE ENGINE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p2-points">
+        <div class="p2-point">
+          <div class="p2-point__ic">1</div>
+          <div>
+            <h4>Real-time intrusion and vandalism alerts</h4>
+            <p>After-hours motion in a gallery, or someone lingering where they shouldn't. The camera flags it and WAVE pushes the alert right away.</p>
+          </div>
+        </div>
+        <div class="p2-point">
+          <div class="p2-point__ic">2</div>
+          <div>
+            <h4>Routed to your people, with the details</h4>
+            <p>The right staff member gets the camera, the time, and a snapshot, so a response starts in minutes instead of the next morning.</p>
+          </div>
+        </div>
+        <div class="p2-point">
+          <div class="p2-point__ic">3</div>
+          <div>
+            <h4>Tuned for a 1901 building</h4>
+            <p>Rules are set per camera and per zone, so a busy rotunda and a quiet archive hall each get sensible thresholds. Fewer false alarms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-honest">
+      <b>Straight about what runs when.</b> The real-time AI alerts come from the new Hanwha AI cameras in Phase 2. Your existing Pelco cameras connect to WAVE for live view and recording, which is what gets you off VideoXpert now. They keep running for continuity, but the AI overlay needs the new cameras.
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PLAN + GRANT RULES ==================== -->
+<section class="section" id="plan">
+  <div class="wrap">
+    <p class="eyebrow">The plan, built around your grant rules</p>
+    <h2 class="h2">Two steps. <em>Summer software, fall cameras.</em></h2>
+    <p class="lede">Nothing depends on solving everything at once. Step one gets you off the discontinued software with the cameras you have. Step two, on the grant's timeline, replaces the 25 to 30 interior cameras and keeps the reliable exterior ones right where they are.</p>
+
+    <div class="plan">
+      <div class="plan-col plan-col--now">
+        <div class="plan-col__head">
+          <span class="plan-col__when">Phase 1 · This summer</span>
+          <h3 class="plan-col__t">Stand up WAVE</h3>
+          <p class="plan-col__lede">Software, purchased outside the grant.</p>
+        </div>
+        <div class="plan-col__body">
+          <ul>
+            <li><span class="mk">✓</span><span>Install Wisenet WAVE on a small on-site server.</span></li>
+            <li><span class="mk">✓</span><span>Connect your existing Pelco cameras over ONVIF.</span></li>
+            <li><span class="mk">✓</span><span><b>Retire Pelco VideoXpert</b> with no coverage gap.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="plan-col plan-col--next">
+        <div class="plan-col__head">
+          <span class="plan-col__when">Phase 2 · Fall 2026</span>
+          <h3 class="plan-col__t">Add the AI cameras</h3>
+          <p class="plan-col__lede">Hardware, through the competitive grant RFP.</p>
+        </div>
+        <div class="plan-col__body">
+          <ul>
+            <li><span class="mk">◆</span><span>Replace the 25 to 30 aging interior cameras.</span></li>
+            <li><span class="mk">◆</span><span>New Hanwha AI cameras drop straight into WAVE.</span></li>
+            <li><span class="mk">◆</span><span><b>Turn on real-time intrusion and vandalism alerts.</b></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="continuity-note" style="border-left-color: var(--blue);">
+      <div class="lbl" style="color: var(--blue);">We respect the grant's separation</div>
+      <p>The software is bought this summer, outside the grant. The fall cameras still run as a proper <b>three-bid RFP</b>, so choosing the platform early never skips procurement. And we understand the same vendor can't both assess and install, so we'll be clear about which role we're in and won't put the grant at risk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PHASE 1 PRICING ==================== -->
+<section class="section section--tint" id="pricing">
+  <div class="wrap">
+    <p class="eyebrow">Phase 1 · software · this summer</p>
+    <h2 class="h2">The numbers, <em>on this page.</em></h2>
+    <p class="lede">This is the whole one-time Phase 1 cost to move off Pelco VideoXpert onto Wisenet WAVE, running on the cameras you already have. A perpetual license, no annual fees. The fall cameras are quoted separately through the grant RFP.</p>
+
+    <div class="ptable">
+      <div class="ptable__row">
+        <div class="ptable__item">
+          <div class="ptable__name">Wisenet WAVE on-site server</div>
+          <div class="ptable__desc">A small local server that records and manages every camera.</div>
+        </div>
+        <div class="ptable__amt">$ —</div>
+      </div>
+      <div class="ptable__row">
+        <div class="ptable__item">
+          <div class="ptable__name">WAVE recording licenses <span class="ptable__tag">Channel count TBC</span></div>
+          <div class="ptable__desc">One perpetual license per camera channel. No annual fees, ever.</div>
+        </div>
+        <div class="ptable__amt">$ —</div>
+      </div>
+      <div class="ptable__row">
+        <div class="ptable__item">
+          <div class="ptable__name">ONVIF onboarding of the existing Pelco cameras</div>
+          <div class="ptable__desc">Connecting the cameras you already own to WAVE over ONVIF.</div>
+        </div>
+        <div class="ptable__amt">$ —</div>
+      </div>
+      <div class="ptable__row">
+        <div class="ptable__item">
+          <div class="ptable__name">Cutover and configuration</div>
+          <div class="ptable__desc">Moving off VideoXpert with no coverage gap, plus per-zone rules.</div>
+        </div>
+        <div class="ptable__amt">$ —</div>
+      </div>
+      <div class="ptable__row">
+        <div class="ptable__item">
+          <div class="ptable__name">First-year support and health monitoring <span class="ptable__tag ptable__tag--opt">Optional</span></div>
+          <div class="ptable__desc">Remote monitoring and support for the first year.</div>
+        </div>
+        <div class="ptable__amt">$ —</div>
+      </div>
+      <div class="ptable__row ptable__row--total">
+        <div class="ptable__item">
+          <div class="ptable__name">Phase 1 total · one-time</div>
+          <div class="ptable__desc">Software, onboarding, cutover, and optional first-year support.</div>
+        </div>
+        <div class="ptable__amt">$ —</div>
+      </div>
+    </div>
+    <p class="ptable__note">Amounts are placeholders until our engineer confirms your exact channel count and server spec. Phase 2, the grant-funded Hanwha AI cameras, is quoted separately through the competitive RFP.</p>
+  </div>
+</section>
+
+<!-- ==================== CLOUD + WHY TEC-TEL (merged) ==================== -->
+<section class="section" id="more">
+  <div class="wrap">
+    <div class="own">
+      <div class="own-card own-card--alt">
+        <span class="own-card__flag">If you'd rather not run a server</span>
+        <div class="own-card__name">Hanwha OnCloud</div>
+        <div class="own-card__sub">The cloud path, and the honest trade.</div>
+        <ul>
+          <li><span class="mk">◆</span><span>No on-site recording server to maintain.</span></li>
+          <li><span class="mk">◆</span><span>Connects your existing cameras through a small CloudGateway.</span></li>
+          <li><span class="mk">◆</span><span>Management, updates, and storage handled in the cloud.</span></li>
+          <li><span class="mk">◆</span><span>It's a <b>recurring subscription</b>, not a one-time buy. That's the real difference from WAVE, and why WAVE fits a grant better.</span></li>
+        </ul>
+      </div>
+      <div class="own-card own-card--lead">
+        <span class="own-card__flag">Why Tec-Tel</span>
+        <div class="own-card__name">Hanwha specialists who run the cable</div>
+        <div class="own-card__sub">One team, software to cameras to cabling.</div>
+        <ul>
+          <li><span class="mk">✓</span><span>We deploy Hanwha's Wisenet platform for a living.</span></li>
+          <li><span class="mk">✓</span><span>Nationwide. For a project your size, we send our own W2 technicians, not subcontractors.</span></li>
+          <li><span class="mk">✓</span><span>The people who recommend the platform are the ones who stand it up and keep it running.</span></li>
+          <li><span class="mk">✓</span><span>One point of contact. One number to call when something needs a hand.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FINAL CTA ==================== -->
+<section class="cta" id="book">
+  <div class="cta__glow"></div>
+  <div class="wrap cta__inner">
+    <div>
+      <p class="eyebrow eyebrow--violet">Let's lock in the software this summer</p>
+      <h2>Robin, one call to <em>map the cutover.</em></h2>
+      <p class="cta__sub">Thirty minutes to size the server, confirm your channel count, and set the date you come off VideoXpert. The Phase 1 numbers are already on this page.</p>
+      <div class="cta__ctas">
+        <a class="btn btn--primary" href="tel:+17325803870">Call Joe Intoci <span class="arrow">→</span></a>
+        <a class="btn btn--ghost-d" href="#plan">Re-read the plan</a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card__row">
+        <div class="contact-card__av">JI</div>
+        <div>
+          <div class="contact-card__name">Joe Intoci</div>
+          <div class="contact-card__role">CEO, Tec-Tel</div>
+        </div>
+      </div>
+      <div class="contact-card__lines">
+        <div class="contact-card__line"><span class="ic">✆</span><a href="tel:+17325803870">732-580-3870</a> <span style="color:rgba(255,255,255,.45)">· cell</span></div>
+        <div class="contact-card__line"><span class="ic">✆</span><a href="tel:+18555770400">855-577-0400</a> <span style="color:rgba(255,255,255,.45)">· main</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__lockup">
+        <img class="footer__logo" src="assets/tectel-logo-white.png" alt="Tec-Tel">
+        <span class="footer__div"></span>
+        <span class="footer__partner">× Hanwha Vision</span>
+      </div>
+      <div class="footer__meta">Prepared for The Buffalo History Museum · Confidential · Summer 2026</div>
+    </div>
+    <p class="footer__disclaimer">Wisenet WAVE and Hanwha OnCloud are products of Hanwha Vision. The WAVE interface shown in the hero is an illustration of a video management layout, not a screenshot of the museum's cameras. Real-time AI alerting is provided by the new Hanwha AI cameras in Phase 2. Existing Pelco cameras connect to WAVE over ONVIF for live view and recording only. Server specification and exact channel counts are confirmed on the call. The Phase 1 pricing shown on this page is a one-time cost; the Phase 2 cameras are quoted separately through the grant RFP.</p>
+    <p class="footer__sources"><b>Contact:</b> Joe Intoci, CEO, Tec-Tel · cell 732-580-3870 · main 855-577-0400.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
