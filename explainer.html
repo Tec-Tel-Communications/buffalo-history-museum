@@ -1,0 +1,220 @@
+<!doctype html>
+<!--
+  Tec-Tel × Hanwha — animated in-page explainer for The Buffalo History Museum.
+  Self-contained: no external deps, no build step. To embed in the microsite,
+  lift the <section class="ttx-explainer"> block + the <style id="ttx-explainer-css">
+  + the <script id="ttx-explainer-js"> into the page (or drop this file into an
+  <iframe>). Scene timing is in TT_SCENE_MS below. Silent by design (autoplays,
+  respects prefers-reduced-motion).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tec-Tel × Hanwha — Software-first path off Pelco</title>
+<style id="ttx-explainer-css">
+  :root{
+    --tt-primary:#3d7b6f; --tt-primary-lite:#5fa493; --tt-ink:#0d1512;
+    --tt-panel:#0f1a17; --tt-panel-2:#16241f; --tt-line:#2b3d37;
+    --tt-warn:#e0654b; --tt-amber:#e8b24a; --tt-text:#e8f0ed; --tt-mut:#93a8a1;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#07100d;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:24px}
+  .ttx-explainer{width:min(920px,100%);color:var(--tt-text)}
+  .ttx-frame{position:relative;aspect-ratio:16/9;background:radial-gradient(120% 120% at 20% 0%,#12211c 0%,#0b1512 55%,#081210 100%);border:1px solid var(--tt-line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+  /* top chrome */
+  .ttx-bar{position:absolute;top:0;left:0;right:0;height:40px;display:flex;align-items:center;gap:10px;padding:0 16px;font-size:12px;letter-spacing:.06em;color:var(--tt-mut);z-index:6}
+  .ttx-brand{font-weight:700;color:var(--tt-text);letter-spacing:.02em}
+  .ttx-brand b{color:var(--tt-primary-lite)}
+  .ttx-tag{margin-left:auto;text-transform:uppercase;font-size:10.5px;color:var(--tt-mut)}
+  /* scenes */
+  .ttx-scene{position:absolute;inset:40px 0 46px;padding:8px 40px 0;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease;pointer-events:none;display:flex;flex-direction:column;justify-content:center}
+  .ttx-scene.on{opacity:1;transform:none;pointer-events:auto}
+  .ttx-kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--tt-primary-lite);margin-bottom:10px}
+  .ttx-h{font-size:clamp(20px,3.4vw,32px);line-height:1.12;font-weight:700;margin:0 0 6px;max-width:24ch}
+  .ttx-sub{color:var(--tt-mut);font-size:clamp(13px,1.7vw,16px);margin:0;max-width:46ch}
+  /* camera grid */
+  .ttx-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;max-width:70%}
+  .cam{width:34px;height:26px;border-radius:6px;border:1px solid var(--tt-line);background:var(--tt-panel-2);display:grid;place-items:center;color:var(--tt-mut);position:relative}
+  .cam svg{width:18px;height:18px}
+  .cam.bad{border-color:#3a2a26;color:#8a5a4e}
+  .cam.bad::after{content:"";position:absolute;inset:0;border-radius:6px;background:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(224,101,75,.10) 3px,rgba(224,101,75,.10) 6px);animation:glitch 1.6s steps(6) infinite}
+  @keyframes glitch{0%,100%{opacity:.25}50%{opacity:.7}}
+  .cam.ai{border-color:var(--tt-primary);color:var(--tt-primary-lite);box-shadow:0 0 0 0 rgba(95,164,147,.5)}
+  .cam.upgrade{animation:pop .5s ease both}
+  @keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+  /* chips */
+  .ttx-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .chip{font-size:12.5px;padding:6px 11px;border-radius:999px;border:1px solid var(--tt-line);background:rgba(255,255,255,.02);color:var(--tt-text);opacity:0;transform:translateY(6px);animation:rise .5s ease forwards}
+  .chip.warn{border-color:#5a2f27;color:#f0a493;background:rgba(224,101,75,.08)}
+  .chip.good{border-color:#2f5148;color:#9fe0cf;background:rgba(61,123,111,.14)}
+  @keyframes rise{to{opacity:1;transform:none}}
+  /* software box + link lines */
+  .ttx-stage{position:relative;margin-top:16px;height:120px}
+  .wave-box{position:absolute;right:2%;top:8px;width:150px;padding:12px 14px;border-radius:12px;border:1px solid var(--tt-primary);background:linear-gradient(180deg,rgba(61,123,111,.22),rgba(61,123,111,.06));box-shadow:0 0 30px -6px rgba(61,123,111,.5);opacity:0;transform:translateX(16px);transition:opacity .6s ease,transform .6s ease}
+  .wave-box.on{opacity:1;transform:none}
+  .wave-box .t{font-weight:700;font-size:14px}
+  .wave-box .s{font-size:11px;color:var(--tt-mut);margin-top:2px}
+  .wave-pulse{position:absolute;right:2%;top:8px;width:150px;height:64px;border-radius:12px;border:1px solid var(--tt-primary-lite);opacity:0}
+  .wave-box.on + .wave-pulse{animation:wavepulse 2.2s ease-out infinite}
+  @keyframes wavepulse{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.25)}}
+  .link{position:absolute;left:14%;top:40px;height:2px;background:linear-gradient(90deg,var(--tt-line),var(--tt-primary-lite));transform-origin:left;transform:scaleX(0);border-radius:2px}
+  .wave-box.on ~ .link{animation:draw .7s ease forwards}
+  .link.l2{top:64px;left:10%}
+  .link.l3{top:20px;left:18%}
+  .wave-box.on ~ .link.l2{animation-delay:.15s}
+  .wave-box.on ~ .link.l3{animation-delay:.3s}
+  @keyframes draw{to{transform:scaleX(1)}}
+  .pel{position:absolute;left:2%;top:26px;font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid #5a2f27;color:#f0a493;background:rgba(224,101,75,.08);transition:opacity .7s ease,filter .7s ease}
+  .pel.dim{opacity:.35;filter:grayscale(1)}
+  /* AI alert card */
+  .alert{position:absolute;right:3%;bottom:2px;width:210px;border-radius:12px;border:1px solid var(--tt-amber);background:rgba(20,26,22,.92);padding:12px 13px;opacity:0;transform:translateY(10px) scale(.96)}
+  .alert.on{animation:alertin .5s ease forwards}
+  @keyframes alertin{to{opacity:1;transform:none}}
+  .alert .row{display:flex;align-items:center;gap:8px}
+  .alert .dot{width:8px;height:8px;border-radius:50%;background:var(--tt-amber);box-shadow:0 0 0 0 rgba(232,178,74,.6);animation:ping 1.4s ease-out infinite}
+  @keyframes ping{0%{box-shadow:0 0 0 0 rgba(232,178,74,.5)}100%{box-shadow:0 0 0 9px rgba(232,178,74,0)}}
+  .alert .ttl{font-weight:700;font-size:13px}
+  .alert .meta{font-size:11.5px;color:var(--tt-mut);margin-top:4px}
+  .bbox{position:absolute;left:4%;bottom:14px;width:120px;height:78px;border:2px solid var(--tt-amber);border-radius:6px;opacity:0}
+  .alert.on ~ .bbox{animation:bbin .5s .1s ease forwards}
+  @keyframes bbin{from{opacity:0;transform:scale(.9)}to{opacity:.9;transform:none}}
+  .bbox span{position:absolute;top:-18px;left:-2px;font-size:10px;background:var(--tt-amber);color:#1a1206;padding:1px 6px;border-radius:4px;font-weight:700}
+  /* outro */
+  .ttx-out .ttx-h{max-width:20ch}
+  .cta{margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--tt-primary-lite)}
+  /* controls */
+  .ttx-ctl{position:absolute;left:0;right:0;bottom:0;height:46px;display:flex;align-items:center;gap:12px;padding:0 16px;background:linear-gradient(0deg,rgba(6,14,11,.9),transparent);z-index:6}
+  .ttx-prog{flex:1;height:4px;border-radius:4px;background:var(--tt-line);overflow:hidden}
+  .ttx-prog i{display:block;height:100%;width:0;background:var(--tt-primary-lite)}
+  .ttx-dots{display:flex;gap:6px}
+  .ttx-dots b{width:7px;height:7px;border-radius:50%;background:var(--tt-line);cursor:pointer;transition:background .2s}
+  .ttx-dots b.on{background:var(--tt-primary-lite)}
+  .ttx-play{background:none;border:0;color:var(--tt-text);cursor:pointer;font-size:13px;display:flex;align-items:center;gap:6px}
+  .ttx-cap{margin-top:14px;text-align:center;color:var(--tt-mut);font-size:12.5px}
+  @media (prefers-reduced-motion:reduce){.cam.bad::after,.wave-pulse,.alert .dot{animation:none!important}}
+</style>
+</head>
+<body>
+<section class="ttx-explainer" aria-label="How the phased Hanwha plan works">
+  <div class="ttx-frame" id="ttxFrame">
+    <div class="ttx-bar"><span class="ttx-brand">Tec-Tel <b>×</b> Hanwha</span><span class="ttx-tag">The Buffalo History Museum</span></div>
+
+    <!-- Scene 0 -->
+    <div class="ttx-scene" data-i="0">
+      <div class="ttx-kicker">The plan, in 30 seconds</div>
+      <h2 class="ttx-h">A software-first path off Pelco.</h2>
+      <p class="ttx-sub">Get off the dying video software now. Add AI when the grant funds the cameras. No rip-and-replace.</p>
+    </div>
+
+    <!-- Scene 1 -->
+    <div class="ttx-scene" data-i="1">
+      <div class="ttx-kicker">Where you are today</div>
+      <h2 class="ttx-h">60 aging cameras. Software that's being shut off.</h2>
+      <div class="ttx-grid" id="grid1"></div>
+      <div class="ttx-chips"><span class="chip warn" style="animation-delay:.2s">Pelco VideoXpert · support ending</span></div>
+    </div>
+
+    <!-- Scene 2 -->
+    <div class="ttx-scene" data-i="2">
+      <div class="ttx-kicker">Phase 1 · this summer · software</div>
+      <h2 class="ttx-h">Wisenet WAVE runs on the cameras you already own.</h2>
+      <div class="ttx-stage">
+        <div class="pel" id="pel2">Pelco VX</div>
+        <div class="wave-box" id="wave2"><div class="t">Wisenet WAVE</div><div class="s">on-site server</div></div>
+        <div class="wave-pulse"></div>
+        <div class="link"></div><div class="link l2"></div><div class="link l3"></div>
+      </div>
+      <div class="ttx-chips">
+        <span class="chip good" style="animation-delay:.3s">Connects your Pelco cameras over ONVIF</span>
+        <span class="chip good" style="animation-delay:.5s">Off the dying software, no gap</span>
+        <span class="chip good" style="animation-delay:.7s">Perpetual license · no annual fees</span>
+      </div>
+    </div>
+
+    <!-- Scene 3 -->
+    <div class="ttx-scene" data-i="3">
+      <div class="ttx-kicker">Phase 2 · this fall · grant-funded cameras</div>
+      <h2 class="ttx-h">Hanwha AI cameras add real-time alerts.</h2>
+      <div class="ttx-grid" id="grid3"></div>
+      <div class="alert" id="alert3">
+        <div class="row"><span class="dot"></span><span class="ttl">Motion after hours</span></div>
+        <div class="meta">Gallery 2 · East entrance · 11:47 PM</div>
+      </div>
+      <div class="bbox"><span>person</span></div>
+    </div>
+
+    <!-- Scene 4 -->
+    <div class="ttx-scene ttx-out" data-i="4">
+      <div class="ttx-kicker">The result</div>
+      <h2 class="ttx-h">Off the dying software now. AI-ready by fall.</h2>
+      <p class="ttx-sub">One platform, phased to fit the grant. We map it to your building.</p>
+      <span class="cta">Tec-Tel × Hanwha &nbsp;·&nbsp; let's plan it →</span>
+    </div>
+
+    <!-- controls -->
+    <div class="ttx-ctl">
+      <button class="ttx-play" id="ttxPlay" aria-label="Play or pause">⏸ <span>Pause</span></button>
+      <div class="ttx-prog"><i id="ttxProg"></i></div>
+      <div class="ttx-dots" id="ttxDots"></div>
+    </div>
+  </div>
+  <p class="ttx-cap">Silent walkthrough. Full picture and pricing come in the proposal and on the call.</p>
+</section>
+
+<script id="ttx-explainer-js">
+(function(){
+  var TT_SCENE_MS=[4200,5200,6400,6000,5200]; // per-scene durations (tunable)
+  var scenes=[].slice.call(document.querySelectorAll('.ttx-scene'));
+  var dotsWrap=document.getElementById('ttxDots');
+  var prog=document.getElementById('ttxProg');
+  var playBtn=document.getElementById('ttxPlay');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var i=0,playing=true,t0=0,raf=0,timer=0;
+
+  // build camera grids
+  function fillGrid(el, n,badEvery,ai){
+    var cam='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h13l4 3v7H3z"/><circle cx="9.5" cy="12.5" r="2.5"/></svg>';
+    for(var k=0;k<n;k++){var bad=badEvery&&k%badEvery===0;var isAi=ai&&k<ai;
+      el.insertAdjacentHTML('beforeend','<div class="cam '+(isAi?'ai upgrade':(bad?'bad':''))+'" style="animation-delay:'+(k*0.05)+'s">'+cam+'</div>');}
+  }
+  fillGrid(document.getElementById('grid1'),16,3,0);
+  fillGrid(document.getElementById('grid3'),16,0,5);
+
+  scenes.forEach(function(s,idx){var b=document.createElement('b');if(idx===0)b.className='on';b.onclick=function(){go(idx,true);};dotsWrap.appendChild(b);});
+  var dots=[].slice.call(dotsWrap.children);
+
+  function activateExtras(idx){
+    if(idx===2){document.getElementById('wave2').classList.add('on');document.getElementById('pel2').classList.add('dim');}
+    else{document.getElementById('wave2').classList.remove('on');document.getElementById('pel2').classList.remove('dim');}
+    if(idx===3){document.getElementById('alert3').classList.add('on');}
+    else{document.getElementById('alert3').classList.remove('on');}
+  }
+  function go(n,user){
+    i=(n+scenes.length)%scenes.length;
+    scenes.forEach(function(s,idx){s.classList.toggle('on',idx===i);});
+    dots.forEach(function(d,idx){d.classList.toggle('on',idx===i);});
+    activateExtras(i);
+    t0=performance.now();
+    if(user&&!playing){setPlay(true);}
+  }
+  function tick(now){
+    if(!playing)return;
+    var dur=TT_SCENE_MS[i];var p=Math.min((now-t0)/dur,1);
+    prog.style.width=(p*100)+'%';
+    if(p>=1){go(i+1);}
+    raf=requestAnimationFrame(tick);
+  }
+  function setPlay(on){
+    playing=on;
+    playBtn.innerHTML=on?'⏸ <span>Pause</span>':'▶ <span>Play</span>';
+    if(on){t0=performance.now();raf=requestAnimationFrame(tick);}else{cancelAnimationFrame(raf);}
+  }
+  playBtn.onclick=function(){setPlay(!playing);};
+
+  go(0);
+  if(reduce){setPlay(false);prog.style.width='100%';} else {setPlay(true);}
+})();
+</script>
+</body>
+</html>
