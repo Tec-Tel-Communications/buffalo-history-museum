@@ -642,3 +642,5 @@ a { color: inherit; }
 .wave-demo__video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .wave-demo__cap { font-size: 13px; color: var(--ink-3); margin: 14px 0 0; }
 @media (max-width:760px){ .explainer__frame { aspect-ratio: 4/5; } }
+
+.wave-demo--solo { margin-top: 0 !important; }
