@@ -405,6 +405,20 @@ a { color: inherit; }
   font-size: 14.5px; line-height: 1.6; color: var(--ink-2);
 }
 .p2-honest b { color: var(--navy); }
+.cloud-callout {
+  margin-top: 20px; display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start;
+  padding: 22px 26px; border-radius: var(--r); background: var(--violet-50);
+  border: 1px solid var(--violet-100);
+}
+.cloud-callout__ic {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  background: #fff; color: var(--violet); font-size: 20px; border: 1px solid var(--violet-100);
+}
+.cloud-callout__t { font-size: 16px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; margin-bottom: 5px; }
+.cloud-callout p { font-size: 14px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+@media (max-width: 600px) {
+  .cloud-callout { grid-template-columns: 1fr; }
+}
 
 /* ====================================================================
    CLOUD OPTION
@@ -554,7 +568,36 @@ a { color: inherit; }
 @media (max-width: 600px) {
   .ptable__row { grid-template-columns: 1fr; gap: 10px; }
   .ptable__amt { justify-self: start; }
+  .assume__cols { grid-template-columns: 1fr; }
+  .assume__cols > div:first-child { border-right: 0; border-bottom: 1px solid var(--rule-2); }
 }
+.budg-flag {
+  display: inline-flex; align-items: center; gap: 9px; margin-top: 40px; margin-bottom: 14px;
+  font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 700; color: var(--amber);
+  background: #FBF4E6; border: 1px solid #EAD9AE; padding: 8px 14px; border-radius: 999px;
+}
+.budg-flag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); }
+.assume { margin-top: 26px; border: 1px solid var(--rule); border-radius: var(--r); background: var(--paper); overflow: hidden; }
+.assume__head {
+  padding: 16px 26px; border-bottom: 1px solid var(--rule); background: var(--tint);
+  font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 700; color: var(--ink-3);
+}
+.assume__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.assume__cols > div { padding: 24px 26px; }
+.assume__cols > div:first-child { border-right: 1px solid var(--rule-2); }
+.assume__lbl {
+  font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 700; margin-bottom: 14px;
+}
+.assume__lbl--in { color: var(--green-ok); }
+.assume__lbl--ex { color: var(--ink-3); }
+.assume ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.assume li { position: relative; padding-left: 20px; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.assume li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 2px; }
+.assume__lbl--in ~ ul li::before { background: var(--green-ok); }
+.assume__lbl--ex ~ ul li::before { background: var(--ink-4); }
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
@@ -589,7 +632,13 @@ a { color: inherit; }
   .tile__rec, .feed__rec { animation: none; }
 }
 
-/* ==================== EXPLAINER EMBED (added by Tec-Tel) ==================== */
+/* ===== EXPLAINER + WAVE DEMO EMBED (added by Tec-Tel) ===== */
 #explainer-slot { padding: 0; border: 0; background: none; }
-.explainer__frame { width: 100%; aspect-ratio: 16 / 10; border: 0; border-radius: 18px; display: block; box-shadow: var(--shadow-card); background: #07100d; }
-@media (max-width: 760px){ .explainer__frame { aspect-ratio: 4 / 5; } }
+.explainer__frame { width: 100%; aspect-ratio: 16/10; border: 0; border-radius: 18px; display: block; box-shadow: var(--shadow-card); background: #07100d; }
+.wave-demo { margin-top: 34px; text-align: center; }
+.wave-demo__eyebrow { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); margin: 0 0 6px; }
+.wave-demo__h { font-size: clamp(20px,2.6vw,28px); font-weight: 800; color: var(--navy); letter-spacing: -.02em; margin: 0 0 18px; }
+.wave-demo__video { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-card); background: #000; }
+.wave-demo__video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.wave-demo__cap { font-size: 13px; color: var(--ink-3); margin: 14px 0 0; }
+@media (max-width:760px){ .explainer__frame { aspect-ratio: 4/5; } }
